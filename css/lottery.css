@@ -1,0 +1,657 @@
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select,
+td {
+	margin: 0;
+	padding: 0
+}
+
+html,
+body {
+	font: 16px "microsoft yahei";
+	word-wrap: break-word
+}
+
+a,
+u,
+s,
+del {
+	color: #666;
+	text-decoration: none
+}
+
+fieldset,
+a img,
+.bor0 {
+	border: 0
+}
+
+i,
+em,
+b {
+	font-style: normal;
+	font-weight: 100
+}
+
+li {
+	list-style: none
+}
+
+img {
+	vertical-align: middle
+}
+
+table {
+	border-collapse: collapse
+}
+
+
+textarea {
+	resize: none
+}
+
+textarea,
+input {
+	outline: 0
+}
+
+.over {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+html,
+body {
+	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+.bg {
+	background: url(../image/bg.png) no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+	overflow-x: hidden;
+	box-sizing: border-box;
+	overflow-y: scroll;
+}
+
+#input {
+	opacity: 0;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+
+.caidai {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	height: 13.65333333rem;
+	background: url("../image/caidai.png");
+	background-size: 100% 100%;
+}
+
+.title {
+	width: 8.52rem;
+	height: 4.21333333rem;
+	margin: 0.5rem auto;
+	background: url("../image/title.png");
+	background-size: 100% 100%;
+	position: relative;
+}
+
+.time {
+	position: absolute;
+	left: 3rem;
+	top: 0.8rem;
+	width: 1.73333333rem;
+	line-height: 0.37333333rem;
+	font-size: 0.23333333rem;
+	color: #fff;
+	-o-transform: rotate(-12deg);
+	-ms-transform: rotate(-12deg);
+	-moz-transform: rotate(-12deg);
+	-webkit-transform: rotate(-12deg);
+	transform: rotate(-12deg);
+}
+
+
+/*轮盘*/
+.rotate {
+	position: relative;
+	width: 100%;
+	height: 8.93333333rem;
+}
+
+.lunpai {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 8.86666667rem;
+	height: 8.86666667rem;
+	margin-left: -4.42666667rem;
+	background: url("../image/circle.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.ring {
+	position: absolute;
+	left: 50%;
+	top: 0.34666667rem;
+	width: 8.22666667rem;
+	height: 8.22666667rem;
+	margin-left: -4.08rem;
+	background: url("../image/dark.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.rotate div.light {
+	background: url("../image/light.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+#btn {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 2.13333333rem;
+	height: 2.64rem;
+	margin: -1.4rem 0 0 -1.06666667rem;
+	background: url("../image/button.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+/*奖品*/
+.prize li {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 3.86666667rem;
+	background: no-repeat center 35%;
+	font-size: 0.32rem;
+	font-weight: bold;
+	line-height: 0.8rem;
+	text-align: center;
+	color: #f44747;
+	/*转盘文字颜色*/
+	-moz-transform-origin: center bottom;
+	-webkit-transform-origin: center bottom;
+	-o-transform-origin: center bottom;
+	-ms-transform-origin: center bottom;
+	transform-origin: center bottom;
+}
+
+.prize li:nth-child(1) {
+	background: url("../image/1.png") no-repeat center top 1.1rem;
+	background-size: 0.92rem 0.92rem;
+	-o-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+
+.prize li:nth-child(2) {
+	background: url("../image/2.png") no-repeat center top 1.1rem;
+	background-size: 0.92rem 0.92rem;
+	-o-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+	transform: rotate(60deg);
+}
+
+.prize li:nth-child(3) {
+	background: url("../image/3.png") no-repeat center top 1.1rem;
+	background-size: 0.92rem 0.92rem;
+	-o-transform: rotate(120deg);
+	-ms-transform: rotate(120deg);
+	-moz-transform: rotate(120deg);
+	-webkit-transform: rotate(120deg);
+	transform: rotate(120deg);
+}
+
+.prize li:nth-child(4) {
+	background: url("../image/4.png") no-repeat center top 1.1rem;
+	background-size: 0.92rem 0.92rem;
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.prize li:nth-child(5) {
+	background: url("../image/5.png") no-repeat center top 1.1rem;
+	background-size: 0.92rem 0.92rem;
+	-o-transform: rotate(240deg);
+	-ms-transform: rotate(240deg);
+	-moz-transform: rotate(240deg);
+	-webkit-transform: rotate(240deg);
+	transform: rotate(240deg);
+}
+
+.prize li:nth-child(6) {
+	background: url("../image/6.png") no-repeat center top 1.1rem;
+	background-size: 0.92rem 0.92rem;
+	-o-transform: rotate(300deg);
+	-ms-transform: rotate(300deg);
+	-moz-transform: rotate(300deg);
+	-webkit-transform: rotate(300deg);
+	transform: rotate(300deg);
+}
+
+.prize li span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin-left: -50%;
+	border-right: 2px solid #f44747;
+	-o-transform-origin: right bottom;
+	-ms-transform-origin: right bottom;
+	-moz-transform-origin: right bottom;
+	-webkit-transform-origin: right bottom;
+	transform-origin: right bottom;
+	-o-transform: rotate(30deg) skewY(30deg);
+	-ms-transform: rotate(30deg) skewY(30deg);
+	-moz-transform: rotate(30deg) skewY(30deg);
+	-webkit-transform: rotate(30deg) skewY(30deg);
+	transform: rotate(30deg) skewY(30deg);
+}
+
+.prize li p {
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+	width: 50%;
+	height: 60%;
+	padding-top: 0.26666667rem;
+	text-align: center;
+	line-height: 0.33333333rem;
+}
+
+.prize {
+	overflow: hidden;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -3.86666667rem 0 0 -3.86666667rem;
+	width: 7.73333333rem;
+	height: 7.73333333rem;
+	border-radius: 50%;
+}
+
+.running {
+	-o-animation: init 90s linear infinite;
+	-ms-animation: init 90s linear infinite;
+	-moz-animation: init 90s linear infinite;
+	-webkit-animation: init 90s linear infinite;
+	animation: init 90s linear infinite;
+}
+
+@keyframes init {
+	100% {
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.border {
+	width: 5.06666667rem;
+	height: 0.84rem;
+	margin: 0.13333333rem auto 0.33333333rem;
+	background: url("../image/border.png") no-repeat;
+	background-size: 100% 100%;
+	font-size: 0.32rem;
+	line-height: 0.84rem;
+	text-align: center;
+	color: #fff;
+}
+
+.scroll {
+	width: 7.33333333rem;
+	height: 3.53333333rem;
+	margin: auto;
+}
+
+.scroll p {
+	width: 4.76rem;
+	height: 0.29333333rem;
+	margin: auto;
+	background: url("../image/list.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.scroll .ovsList {
+	width: 100%;
+	height: 1.06666667rem;
+	margin-top: 0.26666667rem;
+	padding: 0.26666667rem 0;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 0.13333333rem;
+	height: 2rem;
+	overflow: hidden;
+}
+
+.scroll ul {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.scroll ul li {
+	position: relative;
+	top: 0;
+	text-align: center;
+	font-size: 0.29333333rem;
+	line-height: 0.53333333rem;
+	color: #fff;
+
+}
+
+
+
+#mask {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+#mask .blin {
+	width: 100%;
+	height: 100%;
+	background: url("../image/gold.png") no-repeat;
+	background-size: 100% 100%;
+	-o-animation: circle 10s linear infinite;
+	-ms-animation: circle 10s linear infinite;
+	-moz-animation: circle 10s linear infinite;
+	-webkit-animation: circle 10s linear infinite;
+	animation: circle 10s linear infinite;
+}
+
+@keyframes circle {
+	0% {
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+#mask .caidai {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background: url("../image/dianzhui.png") no-repeat;
+	background-size: 100% 100%;
+	-o-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+#mask .winning {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 8rem;
+	height: 6.8rem;
+	margin: -3.46666667rem 0 0 -4rem;
+	-o-transform: scale(0.1);
+	-ms-transform: scale(0.1);
+	-moz-transform: scale(0.1);
+	-webkit-transform: scale(0.1);
+	transform: scale(0.1);
+}
+
+#mask .reback {
+	-o-animation: reback .5s linear forwards;
+	-ms-animation: reback .5s linear forwards;
+	-moz-animation: reback .5s linear forwards;
+	-webkit-animation: reback .5s linear forwards;
+	animation: reback .5s linear forwards;
+}
+
+@keyframes reback {
+	100% {
+		-o-transform: scale(1);
+		-ms-transform: scale(1);
+		-moz-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+.winning .red-head {
+	position: relative;
+	top: -0.33333333rem;
+	width: 100%;
+	height: 4.46666667rem;
+	background: url("../image/top.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.winning .red-body {
+	position: relative;
+	top: -2.13333333rem;
+	z-index: 2;
+	width: 100%;
+	height: 4.8rem;
+	background: url("../image/bottom.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.winning #card {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	margin-left: -3.2rem;
+	margin-top: -1.06666667rem;
+	width: 80%;
+	height: 4.26666667rem;
+	background: url("../image/middle.png") no-repeat;
+	background-size: 100% 100%;
+	-o-transition: top .5s;
+	-ms-transition: top .5s;
+	-moz-transition: top .5s;
+	-webkit-transition: top .5s;
+	transition: top .5s;
+}
+
+#card .win {
+	display: block;
+	margin: 0.13333333rem auto;
+	width: 92%;
+	height: 3.86666667rem;
+	background: url("../image/prize2.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.winning .pull {
+	-o-animation: card .5s linear forwards;
+	-ms-animation: card .5s linear forwards;
+	-moz-animation: card .5s linear forwards;
+	-webkit-animation: card .5s linear forwards;
+	animation: card .5s linear forwards;
+}
+
+@keyframes card {
+	100% {
+		margin-top: -3.2rem;
+	}
+}
+
+.winning .btn {
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	z-index: 2;
+	width: 4.85333333rem;
+	height: 0.94666667rem;
+	margin-left: -2.42666667rem;
+	background: url("../image/button1.png") no-repeat;
+	background-size: 100% 100%;
+	-o-animation: shake .5s 2 linear alternate;
+	-ms-animation: shake .5s 2 linear alternate;
+	-moz-animation: shake .5s 2 linear alternate;
+	-webkit-animation: shake .5s 2 linear alternate;
+	animation: shake .5s 2 linear alternate;
+}
+
+@keyframes shake {
+	50% {
+		-o-transform: rotate(-5deg);
+		-ms-transform: rotate(-5deg);
+		-moz-transform: rotate(-5deg);
+		-webkit-transform: rotate(-5deg);
+		transform: rotate(-5deg);
+	}
+
+	100% {
+		-o-transform: rotate(5deg);
+		-ms-transform: rotate(5deg);
+		-moz-transform: rotate(5deg);
+		-webkit-transform: rotate(5deg);
+		transform: rotate(5deg);
+	}
+}
+
+#close {
+	opacity: 0;
+	position: absolute;
+	right: 0rem;
+	top: -1.06666667rem;
+	z-index: 10;
+	width: 0.85333333rem;
+	height: 0.85333333rem;
+	background: url("../image/close1.png") no-repeat;
+	background-size: 100% 100%;
+	-o-animation: fadein .5s .5s linear forwards;
+	-ms-animation: fadein .5s .5s linear forwards;
+	-moz-animation: fadein .5s .5s linear forwards;
+	-webkit-animation: fadein .5s .5s linear forwards;
+	animation: fadein .5s .5s linear forwards;
+}
+
+@keyframes fadein {
+	100% {
+		opacity: 1;
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.toastAlert {
+	display: none;
+}
+
+.toastAlert p {
+	position: fixed;
+	display: flex;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+
+}
+
+.toastAlert .toast {
+	background: rgba(0, 0, 0, .7);
+	color: #fff;
+	border-radius: 10px;
+	padding: 0.15rem 0.3rem;
+	transition: all 0.3s;
+
+}
+
+.show {
+	display: block !important;
+}
+
+#musicBtn {
+	width: 30px;
+	height: 30px;
+	position: fixed;
+	right: 30px;
+	z-index: 999;
+	background-image: url(../image/musicOn.png);
+	background-size: 30px 30px;
+	z-index: 9999999;
+	top:55px;
+}
+
+.rotate360 {
+	-webkit-animation: rotation 2s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+.audio{
+	position: absolute;
+	right: -220px;
+	top: 50px;
+	z-index: 100000000000000;
+	opacity: 0;
+	
+}

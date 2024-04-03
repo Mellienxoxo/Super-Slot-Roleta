@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Slot Super Roleta</title>
+		<link rel="stylesheet" href="css/lottery.css">
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+		<!-- Meta Pixel Code -->
+
+
+<!-- End Meta Pixel Code -->
+
+	</head>
+	<body>
+		<div class="bg">
+			<!-- Music -->
+			<audio style="display:none; height: 0" id="bg-music" preload="auto" src="./image/bg.mp3" loop="loop"></audio>
+			<div id="musicBtn" onclick="playMusic()" class="rotate360"></div>
+			<div class="caidai"></div>
+			<!-- Time -->
+			<div class="header clearfix">
+				<div class="title">
+				</div>
+			</div>
+			<!-- Lottery Board -->
+			<div class="rotate" id="lotArea">
+				<div class="lunpai">
+					<ul class="prize  running">
+						<li class="lottery-span1" data-id="1"><span></span>
+							<p>R$1</p>
+						</li>
+						<li class="lottery-span2" data-id="2"><span></span>
+							<p>R$10</p>
+						</li>
+						<li class="lottery-span3" data-id="3"><span></span>
+							<p>R$20</p>
+						</li>
+						<li class="lottery-span4" data-id="4"><span></span>
+							<p>R$30</p>
+						</li>
+						<li class="lottery-span5" data-id="5"><span></span>
+							<p>R$40</p>
+						</li>
+						<li class="lottery-span6" data-id="6"><span></span>
+							<p>R$50</p>
+						</li>
+
+					</ul>
+				</div>
+				<div class="ring"></div>
+				<div id="btn"></div>
+			</div>
+			<!-- Title -->
+			<div class="border">
+				Há <span>987543</span> participantes.
+			</div>
+			<!-- Scroll List -->
+			<div class="scroll">
+				<p></p>
+
+				<div class="ovsList">
+					<ul class="ul1" id="ul1">
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+						<li>
+							Parabéns pelo prêmio de R$30, XX.
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- Prize pop-up window -->
+			<div id="mask">
+				<div class="blin"></div>
+				<div class="caidai"></div>
+				<div class="winning reback">
+					<div class="red-head"></div>
+					<div class="red-body"></div>
+					<div id="card" class="pull">
+						<a href="" target="_self" class="win winImg"></a>
+					</div>
+					<!-- Download Button -->
+					<div id="installButton" class="btn" onclick="getReward()"></div>
+					<span id="close" onclick="coloseReward()"></span>
+				</div>
+			</div>
+		</div>
+		<div style="display:none;"><a href="https://smalltool.github.io/">仿站小工具</a></div>
+</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/lottery.js"></script>
+	<script>
+		// sound playback
+		var isPlay = false
+		// H5 does not support automatic playback and requires user click operation.
+		// playMusic()
+		function playMusic() {
+			//Get audio dom
+			var audio = document.getElementById("bg-music");
+			if (!isPlay) {
+				console.log('播放音乐')
+				isPlay = true
+				audio.play();
+				$('#musicBtn').addClass('rotate360');
+				$('#musicBtn').css('background', 'url(./image/musicOn.png) no-repeat center');
+				$('#musicBtn').css('background-size', ' 100% 100%');
+			} else {
+				console.log('关闭音乐')
+				isPlay = false
+				audio.pause();
+				$('#musicBtn').removeClass('rotate360');
+				$('#musicBtn').css('background', 'url(./image/musicOff.png) no-repeat center');
+				$('#musicBtn').css('background-size', ' 100% 100%');
+			}
+
+		}
+		
+		// lights flashing
+		var isType = true
+		setInterval(() => {
+			if (isType) {
+				isType = false
+				$('.ring').addClass('light')
+			} else {
+				isType = true
+				$('.ring').removeClass('light')
+			}
+		}, 1000)
+
+
+
+
+		
+
+		// Click lottery isLoading to avoid repeated clicks
+		var isLoading = true
+		var Lottery = Turntable.create();
+		$('#btn').on('click', function() {
+			if (localStorage.getItem('is_new')){
+				//toastFn('is_new')
+				downloadAdjust(code, campaign);
+				return false;
+			}
+			if (isLoading) {	
+				// Click to draw - play music if there is no music
+				if (!isPlay) {
+					playMusic()
+				}
+				isLoading = false
+				$('.prize').addClass('lottery-wrap')
+				$('.prize').removeClass('running')
+				var num = 3;//Math.floor(Math.random() * 5);
+				Lottery.start(num, function(index) {
+
+					$('.winImg').css('background', 'url(./image/' + (index + 1) + '.png) no-repeat center');
+					$('.winImg').css('background-size', ' 50%');
+					$('#mask').show()
+					setTimeout(() => {
+						$('.prize').removeClass('lottery-wrap')
+						$('.prize').addClass('running')
+						isLoading = true
+					}, 1000)
+
+				});
+			}
+
+		});
+
+		// List of winners shuffled, names randomized, and rolled
+		$(function() {
+			// Get ul element
+			var ul = $(".ul1");
+			// Get li element
+			var lis = ul.children("li");
+			// shuffle the order of li
+			lis.sort(function() {
+				return 0.5 - Math.random();
+			});
+			// Modify the content of li
+			lis.each(function(index) {
+				//$(this).text("New Item " + (index + 1));
+				let n = Math.floor(Math.random() * 5 + 1)*10;
+				$(this).text("Parabéns pelo prêmio de R$"+n+", "+getName()+'.');
+			});
+			// Add the scrambled li back to ul
+			ul.append(lis);
+
+			var num = $(".ul1").find("li").length;
+			if (num > 1) {
+				setInterval(function() {
+					$('.ul1').animate({
+						marginTop: "-20px" //The height of the outermost div, the height of the sliding
+					}, 500, function() {
+						$(this).css({
+							marginTop: "0"
+						}).find("li:first").appendTo(this);
+					});
+				}, 1000);
+			}
+		});
+
+		function getName(){
+			// Array of common Brazilian names
+			var names = [
+				"Maria",
+				"Ana",
+				"Marcos",
+				"Lucas",
+				"Julia",
+				"Pedro",
+				"Fernanda",
+				"Diego",
+				"Camila",
+				"Luciano",
+				// more names...
+			];
+
+// Array of common Brazilian surnames
+			var surnames = [
+				"Silva",
+				"Santos",
+				"Oliveira",
+				"Souza",
+				"Costa",
+				"Rodrigues",
+				"Almeida",
+				"Nascimento",
+				"Gomes",
+				"Pereira",
+				// more names...
+			];
+
+// Randomly select first and last name
+			var randomName = names[Math.floor(Math.random() * names.length)];
+			var randomSurname = surnames[Math.floor(Math.random() * surnames.length)];
+
+// Splice first and last name
+			var fullName = randomName + " " + randomSurname;
+			return fullName;
+		}
+
+
+
+	// Call Download Function
+	$(document).ready(function () {
+	//Close lottery
+    function closeReward() {
+        $('#mask').hide();
+    }
+
+	// Interface for receiving rewards
+    function getReward() {
+        $('#mask').hide();
+        // toastFn('Received successfully');
+        localStorage.setItem('is_new', 'true');
+
+        console.log("Code:", code);
+        console.log("Campaign:", campaign);
+
+        // Trigger the downloadAdjust function with appropriate parameters
+        downloadAdjust(code, campaign);
+    }
+
+	function getQueryVariable(variable)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+        }
+        return "";
+    }
+
+    var code = getQueryVariable("code")
+    var pp = new Array(7)
+    for (let i = 0; i < pp.length; i++) 
+    {
+        pp[i] = getQueryVariable("p"+ i)
+        pp[i] = pp[i].replace(/{|}/g, "")
+    }
+    
+    var fbclid = getQueryVariable("fbclid")
+    var fbpid = getQueryVariable("fbpid")
+
+    function copyUrl(_sTxt) {
+        // content��
+        // 
+        const aux = document.createElement('input')
+        // 
+        const content = _sTxt;
+        // 
+        aux.setAttribute('value', content)
+        // 
+        document.body.appendChild(aux)
+        // 
+        aux.select()
+        // 
+        document.execCommand('copy')
+        // 
+        document.body.removeChild(aux)
+    }
+
+
+	function readyAdjust(code,campaign){
+		var img = new Image();
+		let url = "https://view.adjust.com/impression/";
+		if (code != "")
+		  url  = url +"?label="+code;
+		else if (campaign != "")  
+		  url = url + "?campaign="+campaign;
+		if  (code != ""){
+		  img.src =url;
+		}
+		 
+	}
+
+ 
+	function downloadAdjust(code,campaign){
+	 var img = new Image();
+		let url = "https://app.adjust.com/";
+		if (code != "")
+		  url  = url +"?label="+code;
+		else if (campaign != "")  
+		  url = url + "?campaign="+campaign;
+	    if  (code != ""){
+		  if (!code.startsWith("c_"))
+		    code="r_"+code;
+		  copyUrl(code);
+		  img.src =url;
+		}
+	 
+ 
+	 if (isIOS()) {
+      window.location.href="";
+	  return false;
+     }
+   
+
+	 const link = document.createElement("a");
+	 link.style.display = "none";
+	 link.href =""
+	 link.download = "bg.apk"
+	 document.body.appendChild(link);
+	 link.click();
+	 document.body.removeChild(link);
+	}
+  
+
+
+  function testCampaigns(code, pp, fbclid, fbpid)
+    {
+	    var img = new Image();
+		let url = "https://app.adjust.com/";
+		
+		if (pp[0] != "")  
+        {
+            console.log("p0 = " + pp[0]);
+            url = url + pp[0] + "?campaign=";
+        }
+		if (pp[1] != "")
+        {
+            console.log("p1 = "+ pp[1])
+            url = url + pp[1];
+        }
+        if (pp[2] != "") 
+        {
+            console.log("p2 = "+ pp[2])
+            url = url + "%20%28" + pp[2];
+        }
+        if (pp[3] != "") 
+        {
+            console.log("p3 = "+ pp[3])
+            url = url + "%29&adgroup=" + pp[3];
+        }
+        if (pp[4] != "") 
+        {
+            console.log("p4 = "+ pp[4])
+            url = url + "%20%28" + pp[4];
+        }
+        if (pp[5] != "") 
+        {
+            console.log("p5 = "+ pp[5])
+            url = url + "%29&creative=" + pp[5];
+        }
+        if (pp[6] != "") 
+        {
+            console.log("p6 = "+ pp[6])
+            url = url + "%20%28" + pp[6];
+        }
+
+
+        if (fbclid != "") {
+            console.log("fbclid = "+ fbclid)
+            url = url + "%29&fbclid=" + fbclid;
+        }
+        if (fbpid != "") {
+            console.log("fbpid = "+ fbpid)
+            url = url + "&fbpid=" + fbpid;
+        }
+
+        if (code != "")
+		  url  = url +"?label="+code;
+
+        //Add download
+		// Apk to be download
+        var downloadUrl = ""; 
+        url = url + "&redirect=" + downloadUrl;
+
+        console.log("拼接url完成:"+ url)
+
+	    if  (code != ""){
+		  if (!code.startsWith("c_"))
+		    code="r_"+code;
+		  copyUrl(code);
+		  img.src =url;
+		}
+	 
+ 
+	 if (isIOS()) {
+      window.location.href="";
+	  return false;
+     }
+   
+	 const link = document.createElement("a");
+	 link.style.display = "none";
+	 link.href = url;
+	 link.download = "Meta.apk"
+	 document.body.appendChild(link);
+	 link.click();
+	 document.body.removeChild(link);
+	}
+
+
+
+	
+    function isIOS(){
+        var u = navigator.userAgent;
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
+        return isiOS;
+    }
+
+    button = document.getElementById("installButton");
+    button.onclick = function() {
+         testCampaigns(code, pp, fbclid, fbpid)
+        return false;
+    }
+	
+    downloadbtn = document.getElementById("downloadbtn");
+    downloadbtn.onclick = function() {
+      testCampaigns(code, pp, fbclid, fbpid);
+        return false;
+    }
+	
+    installbtn = document.getElementById("installbtn");
+    installbtn.onclick = function() {
+      testCampaigns(code, pp, fbclid, fbpid)
+        return false;
+    }
+ 
+    readyAdjust(code,campaign);
+ 
+    //downloadAdjust(code,campaign); 
+});
+	</script>
+
+</html>
